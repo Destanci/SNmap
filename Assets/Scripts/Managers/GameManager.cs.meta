@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: f5ed7e6174b38b14385699182aa89207
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Ninja: {fileID: 7491069252528998167, guid: c3884fbb24ed32644903c307634639c3, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

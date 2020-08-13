@@ -16,7 +16,7 @@ public class NinjaController : MonoBehaviour
 { 
     public Animator animator; 
     [Space]
-    [Range(1f, 10f)]
+    [Range(1f, 50f)]
     public float Speed = 10f;
     [Range(0.01f, 1f)]
     public float TurnSmoothTime = 0.685f; 

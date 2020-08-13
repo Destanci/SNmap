@@ -62,70 +62,70 @@ public class CheckPointManager : MonoBehaviour
             //{
             //    lamb.GetComponentInChildren<Renderer>().materials[1].color = material.color;
             //}
-            switch (type)
-            {
-                case CheckPointType.Checkpoint: 
-                    GameManager.current.ReachedCheckPoint++;
-                    GameManager.current.lastCheckpoint = this;
-                    GameManager.current.Text_ReachedCheckPoint.text = "CheckPoint Saved : " + GameManager.current.ReachedCheckPoint; 
-                    if (!IsCheckpointPassed)
-                    {
-                        IsCheckpointPassed = true;
-                        GameManager.current.ReachedCheckPoint++;
-                        GameManager.current.PlayerLastCheckPoint = CheckpointPos;
-                    }
+            //switch (type)
+            //{
+            //    case CheckPointType.Checkpoint: 
+            //        GameManager.current.ReachedCheckPoint++;
+            //        GameManager.current.lastCheckpoint = this;
+            //        GameManager.current.Text_ReachedCheckPoint.text = "CheckPoint Saved : " + GameManager.current.ReachedCheckPoint; 
+            //        if (!IsCheckpointPassed)
+            //        {
+            //            IsCheckpointPassed = true;
+            //            GameManager.current.ReachedCheckPoint++;
+            //            GameManager.current.PlayerLastCheckPoint = CheckpointPos;
+            //        }
 
-                    GameManager.current.Text_ReachedCheckPoint.text = "CheckPoint Saved : " + GameManager.current.ReachedCheckPoint; 
-                    switch (GameManager.current.ReachedCheckPoint)
-                    {
-                        case 1:
-                            GameManager.current.CheckPointInfo = "NICE";
-                            break;
-                        case 2:
-                            GameManager.current.CheckPointInfo = "GOOD";
-                            break;
-                        case 3:
-                            GameManager.current.CheckPointInfo = "YOU GOT THIS";
-                            break;
-                        case 4:
-                            GameManager.current.CheckPointInfo = "WOW";
-                            break;
-                        case 5:
-                            GameManager.current.CheckPointInfo = "PERFECT";
-                            break;
-                        case 6:
-                            GameManager.current.CheckPointInfo = "GOOD SLIDE";
-                            break;
-                        case 7:
-                            GameManager.current.CheckPointInfo = "AGILE";
-                            break;
-                        case 8:
-                            GameManager.current.CheckPointInfo = "WHAT A MOVEMENT";
-                            break;
-                        case 9:
-                            GameManager.current.CheckPointInfo = "PERFECT SLIDE";
-                            break;
-                        case 10:
-                            GameManager.current.CheckPointInfo = "ALMOST DONE";
-                            break;
-                        case 11:
-                            GameManager.current.CheckPointInfo = "UNSTOPPABLE";
-                            break; 
-                    }  
-                    break;
-                case CheckPointType.Startpoint:
-                    Debug.Log("START");
-                    break;
-                case CheckPointType.Endpoint:
-                    //GameMenu.current.Complete();
-                    GameManager.current.IsGameFinish = true; 
-                    GameManager.current.Timer.Stop();
-                    gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-                    break;
-            }
-            GameManager.current.Text_CheckPoint.enabled = true;
-            GameManager.current.Text_CheckPoint.text = GameManager.current.CheckPointInfo;
-            StartCoroutine(closeText(1.5f));
+            //        GameManager.current.Text_ReachedCheckPoint.text = "CheckPoint Saved : " + GameManager.current.ReachedCheckPoint; 
+            //        switch (GameManager.current.ReachedCheckPoint)
+            //        {
+            //            case 1:
+            //                GameManager.current.CheckPointInfo = "NICE";
+            //                break;
+            //            case 2:
+            //                GameManager.current.CheckPointInfo = "GOOD";
+            //                break;
+            //            case 3:
+            //                GameManager.current.CheckPointInfo = "YOU GOT THIS";
+            //                break;
+            //            case 4:
+            //                GameManager.current.CheckPointInfo = "WOW";
+            //                break;
+            //            case 5:
+            //                GameManager.current.CheckPointInfo = "PERFECT";
+            //                break;
+            //            case 6:
+            //                GameManager.current.CheckPointInfo = "GOOD SLIDE";
+            //                break;
+            //            case 7:
+            //                GameManager.current.CheckPointInfo = "AGILE";
+            //                break;
+            //            case 8:
+            //                GameManager.current.CheckPointInfo = "WHAT A MOVEMENT";
+            //                break;
+            //            case 9:
+            //                GameManager.current.CheckPointInfo = "PERFECT SLIDE";
+            //                break;
+            //            case 10:
+            //                GameManager.current.CheckPointInfo = "ALMOST DONE";
+            //                break;
+            //            case 11:
+            //                GameManager.current.CheckPointInfo = "UNSTOPPABLE";
+            //                break; 
+            //        }  
+            //        break;
+            //    case CheckPointType.Startpoint:
+            //        Debug.Log("START");
+            //        break;
+            //    case CheckPointType.Endpoint:
+            //        //GameMenu.current.Complete();
+            //        GameManager.current.IsGameFinish = true; 
+            //        GameManager.current.Timer.Stop();
+            //        gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+            //        break;
+            //}
+            //GameManager.current.Text_CheckPoint.enabled = true;
+            //GameManager.current.Text_CheckPoint.text = GameManager.current.CheckPointInfo;
+            //StartCoroutine(closeText(1.5f));
         }
     }
 

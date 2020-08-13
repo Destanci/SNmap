@@ -10,7 +10,7 @@ public enum TransitionParameters
 {
     Sprint,
     Slide,
-    Death, 
+    Death,  
 }
 public class NinjaController : MonoBehaviour
 { 

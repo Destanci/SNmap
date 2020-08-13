@@ -15,7 +15,7 @@ public class Idle : StateMachineBehaviour
     { 
         if (ninja.vertical != 0 || ninja.horizontal != 0)
         { 
-            GameManager.current.IsPlayerStart = true;
+            //GameManager.current.IsPlayerStart = true;
             animator.SetBool(TransitionParameters.Sprint.ToString(), true);
         } 
     }

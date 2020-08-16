@@ -312,7 +312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4320772672107984264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4320772672487841652}
@@ -330,56 +330,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d37e5385efd7064cb1d54c94960acae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Resolution: 20
+  m_Resolution: 30
   m_Appearance:
-    pathColor: {r: 0, g: 1, b: 0, a: 1}
+    pathColor: {r: 0.13207549, g: 0.12294335, b: 0.12148453, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    width: 0.2
+    width: 0.1
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 0, y: 0, z: 0}
+  - position: {x: 28, y: 0, z: 0}
     tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 0, y: 0, z: 135}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 28, y: 0, z: 135}
+    tangent: {x: 0.5, y: 0, z: 5}
     roll: 0
-  - position: {x: 110, y: 0, z: 195}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 130, y: 0, z: 190}
+    tangent: {x: 5, y: 0, z: 0.5}
     roll: 0
-  - position: {x: 215, y: 0, z: 135}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 232, y: 0, z: 130}
+    tangent: {x: 0.5, y: 0, z: -5}
     roll: 0
-  - position: {x: 215, y: 0, z: 15}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 232, y: 0, z: 19}
+    tangent: {x: -0.5, y: 0, z: -5}
     roll: 0
-  - position: {x: 135, y: 0, z: -30}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 157, y: 0, z: -24}
+    tangent: {x: -5, y: 0, z: -0.5}
     roll: 0
-  - position: {x: 55, y: 0, z: 15}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 82, y: 0, z: 17}
+    tangent: {x: -0.5, y: 0, z: 5}
     roll: 0
-  - position: {x: 55, y: 0, z: 105}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 82, y: 0, z: 102}
+    tangent: {x: 0.5, y: 0, z: 5}
     roll: 0
-  - position: {x: 110, y: 0, z: 140}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 130, y: 0, z: 130}
+    tangent: {x: 5, y: 0, z: 0.5}
     roll: 0
-  - position: {x: 165, y: 0, z: 110}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 177, y: 0, z: 104}
+    tangent: {x: 0.5, y: 0, z: -5}
     roll: 0
-  - position: {x: 165, y: 0, z: 40}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 177, y: 0, z: 50}
+    tangent: {x: -0.5, y: 0, z: -5}
     roll: 0
-  - position: {x: 138, y: 0, z: 20}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 155, y: 0, z: 32}
+    tangent: {x: -5, y: 0, z: -0.5}
     roll: 0
-  - position: {x: 102, y: 0, z: 40}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 129, y: 0, z: 50}
+    tangent: {x: -0.5, y: 0, z: 2}
     roll: 0
-  - position: {x: 102, y: 0, z: 70}
-    tangent: {x: 0, y: 0, z: 0}
+  - position: {x: 129, y: 0, z: 72}
+    tangent: {x: 0.5, y: 0, z: 5}
     roll: 0
-  - position: {x: 112, y: 0, z: 92}
+  - position: {x: 139, y: 0, z: 92}
     tangent: {x: 0, y: 0, z: 0}
     roll: 0
 --- !u!1 &4320772672289441209
@@ -1093,6 +1093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011487686554346879, guid: d167f3d7d866101469f787ede6d8831a,
+        type: 3}
+      propertyPath: type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d167f3d7d866101469f787ede6d8831a, type: 3}
@@ -2848,6 +2853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CheckPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011487686554346879, guid: d167f3d7d866101469f787ede6d8831a,
+        type: 3}
+      propertyPath: type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d167f3d7d866101469f787ede6d8831a, type: 3}

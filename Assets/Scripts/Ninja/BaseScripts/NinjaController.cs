@@ -68,7 +68,8 @@ public class NinjaController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (IsSlideArea && collision.gameObject.GetComponent<CheckPointManager>())
+        CheckPointManager cb = collision.gameObject.GetComponent<CheckPointManager>();
+        if (IsSlideArea && cb && cb.enabled )
         {  
             IsSlideArea = false;
             return;

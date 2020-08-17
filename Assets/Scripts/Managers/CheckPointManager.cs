@@ -14,9 +14,7 @@ public class CheckPointManager : MonoBehaviour
     [SerializeField]
     public CheckPointType type = CheckPointType.Checkpoint; 
     [SerializeField]
-    private bool IsCheckpointPassed = false; 
-    [SerializeField]
-    private Material material;
+    private bool IsCheckpointPassed = false;
 
     private Vector3 CheckpointPos;
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+﻿using UnityEngine; 
 
 public enum TransitionParameters
 {
@@ -22,9 +16,9 @@ public class NinjaController : MonoBehaviour
     public float TurnSmoothTime = 0.685f; 
     private float TurnSmoothVelocity = 0;  
     [HideInInspector]
-    public float vertical = 0;
+    public float vertical;
     [HideInInspector]
-    public float horizontal = 0; 
+    public float horizontal;  
     [HideInInspector]
     public bool IsSlideArea;
     [HideInInspector]
@@ -43,26 +37,24 @@ public class NinjaController : MonoBehaviour
             }
             return rigid;
         }
-    }
-     
-    private Vector3 velocity = Vector3.zero;
-    private Vector3 lastLocation = Vector3.zero;
-    public Vector3 getVelocity()
-    {
-        return RIGID_BODY.velocity;
     }  
     private void Start()
     {
+        IsSlideArea = false;
         IsRespawnDone = false;  
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (!animator.GetBool(TransitionParameters.Death.ToString()) && collision.gameObject.CompareTag("Orc"))
-        {
-            Debug.Log("Died");
-            animator.SetBool(TransitionParameters.Death.ToString(), true);
+        { 
+            animator.SetBool(TransitionParameters.Death.ToString(), true); 
             return;
+        }
+         
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            touchingWall = true;
         }
     }
 
@@ -77,26 +69,18 @@ public class NinjaController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (IsSlideArea && collision.gameObject.GetComponent<CheckPointManager>())
-        { 
-            //Debug.Log("Not Sliding.");
+        {  
             IsSlideArea = false;
             return;
         }
         else if (!IsSlideArea && collision.gameObject.CompareTag("SlideArea"))
-        {
-            //Sliding to Idle anim bug fixed
+        { 
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName(TransitionParameters.Slide.ToString()))
             {
                 animator.SetBool(TransitionParameters.Slide.ToString(), true);
-            }
-            //Debug.Log("Sliding.");
+            } 
             IsSlideArea = true;
             return;
-        }
-
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            touchingWall = true;
         }
     }
 
@@ -141,7 +125,8 @@ public class NinjaController : MonoBehaviour
             {
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 float angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, targetAngle, ref TurnSmoothVelocity, TurnSmoothTime);
-                this.gameObject.transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                RIGID_BODY.MoveRotation(Quaternion.Euler(0f, angle, 0f)); 
             }
             gameObject.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
         }

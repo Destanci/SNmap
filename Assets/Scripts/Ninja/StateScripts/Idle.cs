@@ -5,6 +5,7 @@ using UnityEngine;
 public class Idle : StateMachineBehaviour
 {
     NinjaController ninja;
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ninja = animator.GetComponentInParent<NinjaController>();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sprint : StateMachineBehaviour
 { 
-    private NinjaController ninja;
+    NinjaController ninja;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

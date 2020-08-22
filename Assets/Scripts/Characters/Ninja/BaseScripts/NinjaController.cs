@@ -26,16 +26,16 @@ public class NinjaController : MonoBehaviour
     [HideInInspector]
     public bool touchingWall = false;
 
-    private Rigidbody rigid;
-    public Rigidbody RIGID_BODY
+    private Rigidbody _rigidbody;
+    public Rigidbody rigid_body
     {
         get
         {
-            if (rigid == null)
+            if (_rigidbody == null)
             {
-                rigid = GetComponent<Rigidbody>();
+                _rigidbody = GetComponent<Rigidbody>();
             }
-            return rigid;
+            return _rigidbody;
         }
     }  
     private void Start()
@@ -114,11 +114,12 @@ public class NinjaController : MonoBehaviour
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 float angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, targetAngle, ref TurnSmoothVelocity, TurnSmoothTime / 5);
 
-                RIGID_BODY.MoveRotation(Quaternion.Euler(0f, angle, 0f)); 
+                rigid_body.angularVelocity = Vector3.zero;
+                rigid_body.MoveRotation(Quaternion.Euler(0f, angle, 0f)); 
 
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-                RIGID_BODY.MovePosition(RIGID_BODY.position + moveDir.normalized * (Speed / 1.5f) * Time.fixedDeltaTime);
+                rigid_body.MovePosition(rigid_body.position + moveDir.normalized * (Speed / 1.5f) * Time.fixedDeltaTime);
                 gameObject.transform.position += gameObject.transform.forward * Time.fixedDeltaTime * (Speed / 1.5f); 
             }
         }
@@ -129,8 +130,8 @@ public class NinjaController : MonoBehaviour
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 float angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, targetAngle, ref TurnSmoothVelocity, TurnSmoothTime);
 
-                RIGID_BODY.velocity = Vector3.zero;
-                RIGID_BODY.MoveRotation(Quaternion.Euler(0f, angle, 0f)); 
+                rigid_body.angularVelocity = Vector3.zero;
+                rigid_body.MoveRotation(Quaternion.Euler(0f, angle, 0f)); 
             }
             //gameObject.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
             gameObject.transform.position += gameObject.transform.forward * Time.fixedDeltaTime * Speed;

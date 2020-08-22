@@ -65,15 +65,16 @@ public class KnightPatrol : MonoBehaviour
     [SerializeField]
     public KnightState state = KnightState.Idle;
 
-    [SerializeField]
+    [HideInInspector]
     public float DeltaTime = 0; // Wait time counter.
+
+    [SerializeField]
+    private float targetAngle;
 
     [HideInInspector]
     public bool angleModified = false;
     [HideInInspector]
     private bool timeCalculated = false;
-    [HideInInspector]
-    private float targetAngle;
     [HideInInspector]
     private float TurnSmoothVelocity;
 
@@ -122,7 +123,7 @@ public class KnightPatrol : MonoBehaviour
                         if (i == 1) turningAngle *= -1;
 
                         targetAngle = transform.eulerAngles.y + turningAngle;
-                        Debug.Log(targetAngle);
+                        //Debug.Log(targetAngle);
                     }
                     DeltaTime = Random.Range(minWaitTime, maxWaitTime);
                 }
@@ -144,21 +145,31 @@ public class KnightPatrol : MonoBehaviour
 
 
             case KnightState.Turning:
+                rigidbody.angularVelocity = Vector3.zero;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref TurnSmoothVelocity, 0.685f / 5);
                 rigidbody.MoveRotation(Quaternion.Euler(0f, angle, 0f));
 
-                //transform.rotation = Quaternion.Lerp(
-                //    transform.rotation,
-                //    Quaternion.Euler(0, targetAngle, 0), 
-                //    Time.deltaTime * TurningSpeed);
-
-                if(Quaternion.Angle(transform.rotation, Quaternion.Euler(0, targetAngle, 0)) < 0.5f) //go walking.
+                if(Quaternion.Angle(Quaternion.Euler(0f, angle, 0f), Quaternion.Euler(0, targetAngle, 0)) < 0.5f)
                 {
-                    state = KnightState.Walking;
                     MoveSpot.transform.position = transform.position + (transform.forward * Random.Range(minDistance, maxDistance));
+                    state = KnightState.Walking;
                 }
                 break;
         }
+    }
+
+    private void AngleToMiddle()
+    {
+        angleModified = true;
+        targetAngle = Quaternion.LookRotation(PatrolArea.transform.position - transform.position, Vector3.up).eulerAngles.y;
+        float dif = Random.Range(minTurnAngle, maxTurnAngle) / 4;
+
+        int num = Random.Range(-1, 2);
+        dif *= num; // dif will randomly effected or not effected.
+
+        targetAngle += dif;
+
+        //Debug.Log("t " + targetAngle);
     }
 
     private void OnTriggerExit(Collider other)
@@ -166,34 +177,40 @@ public class KnightPatrol : MonoBehaviour
         if(state == KnightState.Walking && other.Equals(PatrolArea))
         {
             state = KnightState.Idle;
-            angleModified = true;
-            targetAngle = Quaternion.LookRotation(other.transform.position - transform.position, Vector3.up).eulerAngles.y;
-            int num = Random.Range(-1, 2);
-            Debug.Log(num);
-            targetAngle += Random.Range(minTurnAngle, maxTurnAngle) / 2 * num;
-            Debug.Log( "t " + targetAngle);
-            //targetAngle += Random.Range(minTurnAngle, maxTurnAngle) / 2 * Random.Range(-1f, 1f);
+            AngleToMiddle();
         }
     }
     
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (state == KnightState.Walking)
+        {
+            if(other.tag.Equals("Wall"))
+            {
+                state = KnightState.Idle;
+                AngleToMiddle();
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if (state == KnightState.Walking) //go idle.
+        if (state == KnightState.Walking)
         {
-            if(other.Equals(MoveSpot) || other.tag.Equals("Wall"))
+            if (other.Equals(MoveSpot))
             {
                 state = KnightState.Idle;
             }
         }
     }
 
-    private void OnCollisionEnter(Collision collision) // TODO : CALCULATE FUGIN TURN ANGLE AFTER HIT TO WALLS.
+    private void OnCollisionEnter(Collision collision)
     {
         if(state == KnightState.Walking && collision.gameObject.tag.Equals("Wall"))
         {
             state = KnightState.Idle;
+            AngleToMiddle();
         }
     }
-
 }

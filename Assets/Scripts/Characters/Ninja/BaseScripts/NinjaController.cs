@@ -92,6 +92,7 @@ public class NinjaController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         horizontal = Input.GetAxisRaw("Horizontal");
 
+
         Camera cam = Camera.main;
         Vector3 forward = cam.transform.forward;
         Vector3 right = cam.transform.right;
@@ -107,6 +108,7 @@ public class NinjaController : MonoBehaviour
         if (!IsSlideArea)
         {
             if (horizontal == 0 && vertical == 0) return;
+
             if (direction.magnitude >= 0.1f)
             {
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
@@ -127,9 +129,11 @@ public class NinjaController : MonoBehaviour
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 float angle = Mathf.SmoothDampAngle(gameObject.transform.eulerAngles.y, targetAngle, ref TurnSmoothVelocity, TurnSmoothTime);
 
+                RIGID_BODY.velocity = Vector3.zero;
                 RIGID_BODY.MoveRotation(Quaternion.Euler(0f, angle, 0f)); 
             }
-            gameObject.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+            //gameObject.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+            gameObject.transform.position += gameObject.transform.forward * Time.fixedDeltaTime * Speed;
         }
     } 
 }

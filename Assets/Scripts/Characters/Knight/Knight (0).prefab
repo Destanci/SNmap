@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 3056266580338092539}
   m_Layer: 0
   m_Name: KnightObject
-  m_TagString: Untagged
+  m_TagString: Knight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   paused: 0
   state: 0
   DeltaTime: 0
+  targetAngle: 0
   angleModified: 0
 --- !u!136 &3056266580338092538
 CapsuleCollider:

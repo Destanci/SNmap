@@ -46,11 +46,11 @@ public class NinjaController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!animator.GetBool(TransitionParameters.Death.ToString()) && collision.gameObject.CompareTag("Orc"))
-        { 
-            animator.SetBool(TransitionParameters.Death.ToString(), true); 
-            return;
-        }
+        //if (!animator.GetBool(TransitionParameters.Death.ToString()) && collision.gameObject.CompareTag("Knight"))
+        //{ 
+        //    animator.SetBool(TransitionParameters.Death.ToString(), true); 
+        //    return;
+        //}
          
         if (collision.gameObject.CompareTag("Wall"))
         {

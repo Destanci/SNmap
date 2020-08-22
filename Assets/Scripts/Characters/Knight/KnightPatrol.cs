@@ -207,7 +207,7 @@ public class KnightPatrol : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(state == KnightState.Walking && collision.gameObject.tag.Equals("Wall"))
+        if(state == KnightState.Walking && (collision.gameObject.tag.Equals("Wall") || collision.gameObject.tag.Equals("Knight")))
         {
             state = KnightState.Idle;
             AngleToMiddle();

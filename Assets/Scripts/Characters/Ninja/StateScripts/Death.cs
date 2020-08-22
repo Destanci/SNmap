@@ -10,9 +10,9 @@ public class Death : StateMachineBehaviour
         animator.SetBool(TransitionParameters.Sprint.ToString(), false);
         animator.SetBool(TransitionParameters.Slide.ToString(), false);
 
-        ninja.RIGID_BODY.velocity = Vector3.zero;
-        ninja.RIGID_BODY.angularVelocity = Vector3.zero;
-        ninja.RIGID_BODY.isKinematic = true;
+        ninja.rigid_body.velocity = Vector3.zero;
+        ninja.rigid_body.angularVelocity = Vector3.zero;
+        ninja.rigid_body.isKinematic = true;
          
         //GameMenu.current.Dead();
         GameManager.current.Timer.Stop();

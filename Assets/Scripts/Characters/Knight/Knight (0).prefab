@@ -94,8 +94,8 @@ MonoBehaviour:
   MoveSpot: {fileID: 3056266580089378545}
   Speed: 4
   TurningSpeed: 5
-  minWaitTime: 1
-  maxWaitTime: 2
+  minWaitTime: 2
+  maxWaitTime: 8
   minDistance: 5
   maxDistance: 10
   minTurnAngle: 60

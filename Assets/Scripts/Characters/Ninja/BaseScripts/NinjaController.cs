@@ -24,7 +24,7 @@ public class NinjaController : MonoBehaviour
     [HideInInspector]
     public bool IsRespawnDone;
     [HideInInspector]
-    public bool touchingWall = false;
+    public bool touchingWall = false; 
 
     private Rigidbody _rigidbody;
     public Rigidbody rigid_body
@@ -89,8 +89,8 @@ public class NinjaController : MonoBehaviour
     {
         if (animator.GetBool(TransitionParameters.Death.ToString()) || !IsRespawnDone) return;
 
-        vertical = Input.GetAxisRaw("Vertical");
-        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = SimpleInput.GetAxisRaw("Vertical");
+        horizontal = SimpleInput.GetAxisRaw("Horizontal");
 
 
         Camera cam = Camera.main;

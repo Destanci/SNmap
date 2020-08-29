@@ -48,10 +48,13 @@ MonoBehaviour:
   PlayerLastCheckPoint: {x: 0, y: 0, z: 0}
   RemainingChance: 3
   ReachedCheckPoint: 0
-  camera: {fileID: 0}
-  Ninja: {fileID: 7491069252528998167, guid: c3884fbb24ed32644903c307634639c3, type: 3}
+  camera: {fileID: 360793656543444035, guid: 41532821fac6732408c32186c6cb7399, type: 3}
+  Ninja: {fileID: 37985978734458617, guid: 2554d92badb46b14492b6e28d1066f41, type: 3}
   Text_CheckPoint: {fileID: 0}
   UX_RespawnNumber: {fileID: 0}
   Text_ReachedCheckPoint: {fileID: 0}
+  Text_Timer: {fileID: 0}
   IsRespawned: 0
   CheckPointInfo: 
+  IsPlayerStart: 0
+  IsGameFinish: 0

@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418e42c7d0405cc48a7b83f63ea53bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Path: {fileID: 0}
+  m_Path: {fileID: 2429693281398684065, guid: a99f9c6d99a1a6b4ba055ce6c4533418, type: 3}
   m_PathPosition: 0.00020143825
   m_PositionUnits: 2
   m_PathOffset: {x: 0, y: 10, z: 0}

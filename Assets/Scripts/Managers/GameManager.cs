@@ -3,17 +3,14 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine; 
 using Debug = UnityEngine.Debug;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager current = null; 
 
-    public CheckPointManager lastCheckpoint;
-    public float CameraLastPathWay; 
-     
+    public CheckPointManager lastCheckpoint;  
     public Vector3 PlayerLastCheckPoint; 
     public static int TotalChance = 3;
     public int RemainingChance = TotalChance; 
@@ -105,15 +102,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(closeText(1.5f));
     }
 
-    private void SpawnPlayer(Vector3 pos)
+    public void SpawnPlayer(Vector3 pos)
     {
         pos.y += 0.25f;
         GameObject ninja = Instantiate(Ninja, pos, Quaternion.identity);
         ninja.transform.position = pos;
         SetCamera(ninja);
     }
-    private void SetCamera(GameObject ninja)
-    {
+    public void SetCamera(GameObject ninja)
+    { 
         camera.Follow = ninja.transform;
         camera.LookAt = ninja.transform; 
     } 

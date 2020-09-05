@@ -2394,7 +2394,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681958486}
-  m_LocalRotation: {x: 0.08409461, y: -0.8069295, z: 0.1185324, w: 0.5724884}
+  m_LocalRotation: {x: 0.0840946, y: -0.80692947, z: 0.11853236, w: 0.5724884}
   m_LocalPosition: {x: 28, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7083,6 +7083,28 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 468610747}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 129224535}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 2272078717391148371}
         m_MethodName: RestartGame
         m_Mode: 1
@@ -7092,7 +7114,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &2072447038
 GameObject:
@@ -7470,30 +7492,10 @@ PrefabInstance:
       propertyPath: m_Path
       value: 
       objectReference: {fileID: 1557375902}
-    - target: {fileID: 360793655421158323, guid: 41532821fac6732408c32186c6cb7399,
-        type: 3}
-      propertyPath: m_PathPosition
-      value: 0.0021468766
-      objectReference: {fileID: 0}
-    - target: {fileID: 360793655421158324, guid: 41532821fac6732408c32186c6cb7399,
-        type: 3}
-      propertyPath: m_DeadZoneHeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 360793655421158324, guid: 41532821fac6732408c32186c6cb7399,
-        type: 3}
-      propertyPath: m_DeadZoneWidth
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 360793656543444034, guid: 41532821fac6732408c32186c6cb7399,
         type: 3}
       propertyPath: m_Name
       value: CM vcam1
-      objectReference: {fileID: 0}
-    - target: {fileID: 360793656543444034, guid: 41532821fac6732408c32186c6cb7399,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 360793656543444035, guid: 41532821fac6732408c32186c6cb7399,
         type: 3}
@@ -7523,17 +7525,17 @@ PrefabInstance:
     - target: {fileID: 360793656543444036, guid: 41532821fac6732408c32186c6cb7399,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08409461
+      value: 0.0840946
       objectReference: {fileID: 0}
     - target: {fileID: 360793656543444036, guid: 41532821fac6732408c32186c6cb7399,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.8069295
+      value: -0.80692947
       objectReference: {fileID: 0}
     - target: {fileID: 360793656543444036, guid: 41532821fac6732408c32186c6cb7399,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.1185324
+      value: 0.11853236
       objectReference: {fileID: 0}
     - target: {fileID: 360793656543444036, guid: 41532821fac6732408c32186c6cb7399,
         type: 3}
@@ -7650,7 +7652,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1742212663, guid: 7131f0f3a3aed204f8874f8cf5ef4caf, type: 3}
       propertyPath: on
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 819026872754339104, guid: 7131f0f3a3aed204f8874f8cf5ef4caf,
         type: 3}
@@ -7932,6 +7934,7 @@ MonoBehaviour:
   GM: {fileID: 5914945960923280114, guid: 38b84ba5608a26f4d9f47a57160b82ca, type: 3}
   PlayButton: {fileID: 2139481730}
   Ninja: {fileID: 805731164}
+  Options: {fileID: 497954673}
 --- !u!1 &3350539126955365614
 GameObject:
   m_ObjectHideFlags: 0

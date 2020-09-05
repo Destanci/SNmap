@@ -44,11 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastCheckpoint: {fileID: 0}
-  CameraLastPathWay: 0
   PlayerLastCheckPoint: {x: 0, y: 0, z: 0}
   RemainingChance: 3
   ReachedCheckPoint: 0
-  camera: {fileID: 360793656543444035, guid: 41532821fac6732408c32186c6cb7399, type: 3}
+  VirtualCamera: {fileID: 360793656543444034, guid: 41532821fac6732408c32186c6cb7399,
+    type: 3}
+  DollyTrack: {fileID: 2429693281398684065, guid: a99f9c6d99a1a6b4ba055ce6c4533418,
+    type: 3}
   Ninja: {fileID: 37985978734458617, guid: 2554d92badb46b14492b6e28d1066f41, type: 3}
   Text_CheckPoint: {fileID: 0}
   UX_RespawnNumber: {fileID: 0}

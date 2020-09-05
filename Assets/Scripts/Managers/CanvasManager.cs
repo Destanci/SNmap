@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using Lean.Gui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject Doly; 
     [SerializeField] private GameObject GM;
     [SerializeField] private GameObject PlayButton;
-    [SerializeField] private GameObject Ninja;
-
+    [SerializeField] private GameObject Ninja;  
+    [SerializeField] private GameObject Options;  
 
     private bool Sound = true;
     private bool Music = true;
@@ -39,7 +40,9 @@ public class CanvasManager : MonoBehaviour
     public void StartGame()
     {
         Doly.SetActive(false); 
-        Instantiate(GM);  
+        Instantiate(GM);
+        setAudio(Options.transform.GetChild(0).gameObject, true);
+        setAudio(Options.transform.GetChild(1).gameObject, false);
     }
 
     public void PauseGame()
@@ -55,6 +58,7 @@ public class CanvasManager : MonoBehaviour
     public void RestartGame()
     {
         ResumeGame();
+        GameManager.current.Restart();
     }
     
     public void SoundToggle()
@@ -84,4 +88,17 @@ public class CanvasManager : MonoBehaviour
             Music = true;
         }
     }
+
+    private void setAudio(GameObject Button, bool type)
+    {
+        if(type)
+        { 
+            Button.GetComponent<LeanToggle>().On = Music;
+        }
+        else
+        { 
+            Button.GetComponent<LeanToggle>().On = Sound;
+        }
+    }
+     
 }

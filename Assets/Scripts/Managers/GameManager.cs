@@ -7,8 +7,8 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class GameManager : MonoBehaviour
-{
-    public static GameManager current = null; 
+{ 
+    public static GameManager current { get; private set; }
 
     public CheckPointManager lastCheckpoint;  
     public Vector3 PlayerLastCheckPoint; 
@@ -38,29 +38,17 @@ public class GameManager : MonoBehaviour
     public bool IsPlayerStart = false; 
 
     [HideInInspector]
-    public bool IsGameFinish = false;  
+    public bool IsGameFinish = false;
 
 
     private void Awake()
-    {  
-        if (current != null)
-        { 
-            Debug.Log("Already a GameManager Working.");
-        }
-        else
-        {
-            current = this;
-        }
-    }
-
-    private void OnDestroy()
     {
-        if (current == this)
-            current = null;
-    }
+        if (current == null) { current = this; } else { Debug.Log("Warning: multiple " + this.name + " in scene!"); }
+    } 
 
     private void Start()
-    {  
+    {
+        camera = FindObjectOfType<CinemachineVirtualCamera>();
         SpawnPlayer(Vector3.zero); 
     }
 
@@ -76,7 +64,13 @@ public class GameManager : MonoBehaviour
             Text_Timer.text = string.Format("{0:00}:{1:00}:{2:00}",ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
         }
     }
-
+    public void SpawnPlayer(Vector3 pos)
+    {
+        pos.y += 0.25f;
+        GameObject ninja = Instantiate(Ninja, pos, Quaternion.identity);
+        ninja.transform.position = pos;
+        SetCamera(ninja);
+    }
     public void Respawn()
     {
         IsRespawned = true;
@@ -100,15 +94,7 @@ public class GameManager : MonoBehaviour
         Text_CheckPoint.enabled = true;
         Text_CheckPoint.text = CheckPointInfo;
         StartCoroutine(closeText(1.5f));
-    }
-
-    public void SpawnPlayer(Vector3 pos)
-    {
-        pos.y += 0.25f;
-        GameObject ninja = Instantiate(Ninja, pos, Quaternion.identity);
-        ninja.transform.position = pos;
-        SetCamera(ninja);
-    }
+    } 
     public void SetCamera(GameObject ninja)
     { 
         camera.Follow = ninja.transform;

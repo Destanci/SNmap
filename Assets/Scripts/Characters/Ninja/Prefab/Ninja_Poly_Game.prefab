@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 37985978734458616}
   - component: {fileID: 964649410637867405}
   m_Layer: 0
-  m_Name: Ninja_Poly
+  m_Name: Ninja_Poly_Game
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3ac612bdc81b64695b8ba2285bd9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2561385500358290769}
+  animator: {fileID: 8380774884168943193}
   Speed: 18
   TurnSmoothTime: 0.685
   vertical: 0
@@ -164,7 +164,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 36db5128ff7c29945a6668057f559a98,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 36db5128ff7c29945a6668057f559a98,
         type: 3}
@@ -181,6 +181,12 @@ PrefabInstance:
 --- !u!4 &2499025613547510819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36db5128ff7c29945a6668057f559a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 2676523509129640904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8380774884168943193 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 36db5128ff7c29945a6668057f559a98,
     type: 3}
   m_PrefabInstance: {fileID: 2676523509129640904}
   m_PrefabAsset: {fileID: 0}
@@ -251,6 +257,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FixedNinjav3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53f17a8396e09944390f1bfec5c8b9cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 53f17a8396e09944390f1bfec5c8b9cb,
         type: 3}
       propertyPath: m_Controller
@@ -266,12 +277,6 @@ PrefabInstance:
 --- !u!4 &8461122811372304171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53f17a8396e09944390f1bfec5c8b9cb,
-    type: 3}
-  m_PrefabInstance: {fileID: 8277980205028577472}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2561385500358290769 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 53f17a8396e09944390f1bfec5c8b9cb,
     type: 3}
   m_PrefabInstance: {fileID: 8277980205028577472}
   m_PrefabAsset: {fileID: 0}

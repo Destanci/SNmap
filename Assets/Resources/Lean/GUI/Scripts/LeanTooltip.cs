@@ -101,7 +101,7 @@ namespace Lean.Gui
 			{
 				case ActivationType.HoverOrPress:
 				{
-					if (HoverShow == true)
+					if (HoverShow == true || PressShow == true)
 					{
 						finalData  = HoverData;
 						finalPoint = HoverPointer.position;
@@ -121,10 +121,10 @@ namespace Lean.Gui
 
 				case ActivationType.Press:
 				{
-					if (PressShow == true && HoverShow == true && HoverData == PressData)
+					if (PressShow == true)
 					{
 						finalData  = PressData;
-						finalPoint = PressPointer.position;
+						finalPoint = HoverPointer.position;
 					}
 				}
 				break;

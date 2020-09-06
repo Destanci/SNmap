@@ -90,12 +90,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f256b4030be2e1418918c77305b792f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8863259898216873265}
   PatrolArea: {fileID: 3056266580999753955}
   MoveSpot: {fileID: 3056266580089378545}
-  Speed: 4
+  Speed: 9
   TurningSpeed: 5
   minWaitTime: 2
-  maxWaitTime: 8
+  maxWaitTime: 6
   minDistance: 5
   maxDistance: 10
   minTurnAngle: 60
@@ -189,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3056266581953433963}
   m_Layer: 0
-  m_Name: Knight (0)
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,11 +285,22 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: a13e0436f6d6a4d4ebba3a0e3100806c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9f36b5160222cb64b86087bd02c827d7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13e0436f6d6a4d4ebba3a0e3100806c, type: 3}
 --- !u!4 &3305839207445145419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a13e0436f6d6a4d4ebba3a0e3100806c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3056266580052590752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8863259898216873265 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a13e0436f6d6a4d4ebba3a0e3100806c,
     type: 3}
   m_PrefabInstance: {fileID: 3056266580052590752}
   m_PrefabAsset: {fileID: 0}

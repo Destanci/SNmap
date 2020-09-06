@@ -121,7 +121,7 @@ public class CheckPointManager : MonoBehaviour
                     //GameMenu.current.Complete();
                     GameManager.current.IsGameFinish = true;
                     GameManager.current.Timer.Stop();
-                    gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+                    //gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
                     break;
             }
             //GameManager.current.Text_CheckPoint.enabled = true;

@@ -11,6 +11,9 @@ public class KnightPatrol : MonoBehaviour
 {
     #region Inspector Variables
 
+    [SerializeField]
+    private Animator animator;
+
     [Header("Game Objects")]
 
     [SerializeField]
@@ -96,9 +99,7 @@ public class KnightPatrol : MonoBehaviour
     #endregion
 
     private void Start()
-    {
-
-
+    { 
         if(maxWaitTime < minWaitTime)
         {
             float tmp = maxWaitTime;
@@ -112,6 +113,7 @@ public class KnightPatrol : MonoBehaviour
         switch (state)
         {
             case KnightState.Idle:
+                animator.SetBool("Patrol", false);
                 if (!timeCalculated)
                 {
                     timeCalculated = true;
@@ -138,6 +140,7 @@ public class KnightPatrol : MonoBehaviour
 
 
             case KnightState.Walking:
+                animator.SetBool("Patrol", true);
                 transform.position = Vector3.MoveTowards(transform.position, MoveSpot.transform.position, Speed * Time.deltaTime);
                 transform.LookAt(MoveSpot.transform);
                 transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
@@ -145,6 +148,7 @@ public class KnightPatrol : MonoBehaviour
 
 
             case KnightState.Turning:
+                animator.SetBool("Patrol", false);
                 rigidbody.angularVelocity = Vector3.zero;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref TurnSmoothVelocity, 0.685f / 5);
                 rigidbody.MoveRotation(Quaternion.Euler(0f, angle, 0f));

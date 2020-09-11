@@ -52,12 +52,12 @@ public class KnightPatrol : MonoBehaviour
     private float maxDistance = 2f;
 
     [SerializeField]
-    [Range(0, 60)]
-    private float minTurnAngle = 30f;
+    [Range(0, 90)]
+    private float minTurnAngle = 90f;
 
     [SerializeField]
-    [Range(0, 90)]
-    private float maxTurnAngle = 45f;
+    [Range(0, 120)]
+    private float maxTurnAngle = 120f;
 
     #endregion
     #region nonInspector Variables
@@ -79,7 +79,7 @@ public class KnightPatrol : MonoBehaviour
     [HideInInspector]
     private bool timeCalculated = false;
     [HideInInspector]
-    private float TurnSmoothVelocity;
+    private float TurnSmoothVelocity; 
 
     [HideInInspector]
     private Rigidbody _rigidbody;
@@ -137,18 +137,16 @@ public class KnightPatrol : MonoBehaviour
                     angleModified = false;
                 }
                 break;
-
-
-            case KnightState.Walking:
+                 
+            case KnightState.Walking: 
                 animator.SetBool("Patrol", true);
                 transform.position = Vector3.MoveTowards(transform.position, MoveSpot.transform.position, Speed * Time.deltaTime);
                 transform.LookAt(MoveSpot.transform);
                 transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
                 break;
-
-
-            case KnightState.Turning:
-                animator.SetBool("Patrol", false);
+                 
+            case KnightState.Turning: 
+                animator.SetBool("Patrol", false); 
                 rigidbody.angularVelocity = Vector3.zero;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref TurnSmoothVelocity, 0.685f / 5);
                 rigidbody.MoveRotation(Quaternion.Euler(0f, angle, 0f));
@@ -182,7 +180,7 @@ public class KnightPatrol : MonoBehaviour
         {
             state = KnightState.Idle;
             AngleToMiddle();
-        }
+        } 
     }
     
 
@@ -191,7 +189,7 @@ public class KnightPatrol : MonoBehaviour
         if (state == KnightState.Walking)
         {
             if(other.tag.Equals("Wall"))
-            {
+            { 
                 state = KnightState.Idle;
                 AngleToMiddle();
             }
@@ -212,9 +210,9 @@ public class KnightPatrol : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if(state == KnightState.Walking && (collision.gameObject.tag.Equals("Wall") || collision.gameObject.tag.Equals("Knight")))
-        {
+        { 
             state = KnightState.Idle;
             AngleToMiddle();
         }
-    }
+    } 
 }

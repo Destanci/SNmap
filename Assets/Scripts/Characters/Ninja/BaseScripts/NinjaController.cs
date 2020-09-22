@@ -9,6 +9,17 @@ public enum TransitionParameters
 }
 public class NinjaController : MonoBehaviour
 { 
+    #region Singleton
+    public static NinjaController current { get; private set; }
+
+    private void Awake()
+    {
+        if (this.name.Contains("Menu")) return;
+        if (current == null) { current = this; } else { Debug.Log("Warning: multiple " + this.name + " in scene!"); }
+        Debug.Log(current);
+    } 
+    #endregion 
+
     public Animator animator; 
     [Space]
     [Range(1f, 50f)]
@@ -26,7 +37,10 @@ public class NinjaController : MonoBehaviour
     public bool IsRespawnDone;
     [HideInInspector]
     public bool touchingWall = false; 
-
+    [HideInInspector]
+    public bool IsSpotted = false;
+    [HideInInspector]
+    public static bool IsGameNinja = false;
     private Rigidbody _rigidbody;
     public Rigidbody rigid_body
     {
@@ -43,17 +57,18 @@ public class NinjaController : MonoBehaviour
     {
         IsSlideArea = false;
         IsRespawnDone = false;  
-    }
+    } 
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (!animator.GetBool(TransitionParameters.Death.ToString()) && collision.gameObject.CompareTag("Knight"))
-        //{ 
-        //    animator.SetBool(TransitionParameters.Death.ToString(), true); 
-        //    return;
-        //}
-         
-        if (collision.gameObject.CompareTag("Wall"))
+        if (!animator.GetBool(TransitionParameters.Death.ToString()) && collision.gameObject.CompareTag("Knight"))
+        { 
+            animator.SetBool(TransitionParameters.Death.ToString(), true);
+            //gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            return;
+        }
+
+        if (!animator.GetBool(TransitionParameters.Death.ToString()) && collision.gameObject.CompareTag("Wall"))
         {
             touchingWall = true;
         }
@@ -137,5 +152,5 @@ public class NinjaController : MonoBehaviour
             //gameObject.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
             gameObject.transform.position += gameObject.transform.forward * Time.fixedDeltaTime * Speed;
         }
-    } 
+    }  
 }

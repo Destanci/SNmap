@@ -51,7 +51,8 @@ MonoBehaviour:
     type: 3}
   DollyTrack: {fileID: 2429693281398684065, guid: a99f9c6d99a1a6b4ba055ce6c4533418,
     type: 3}
-  Ninja: {fileID: 37985978734458617, guid: 2554d92badb46b14492b6e28d1066f41, type: 3}
+  NinjaPrefab: {fileID: 37985978734458617, guid: 2554d92badb46b14492b6e28d1066f41,
+    type: 3}
   Text_CheckPoint: {fileID: 0}
   UX_RespawnNumber: {fileID: 0}
   Text_ReachedCheckPoint: {fileID: 0}

@@ -2,18 +2,25 @@
 using Lean.Gui;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 { 
-    public static CanvasManager Instance { get; private set; } 
+    public static CanvasManager Instance { get; private set; }
 
-    [SerializeField] private GameObject Doly; 
-    [SerializeField] private GameObject GM;
-    [SerializeField] private GameObject PlayButton;
-    [SerializeField] private GameObject Ninja;  
-    [SerializeField] private GameObject Options;  
+    private GameManager gameManager = null;
+
+    [SerializeField] private GameObject Doly = null;
+    [SerializeField] private GameObject GM = null;
+    [SerializeField] private GameObject PlayButton = null;
+    [SerializeField] private GameObject Ninja = null;
+    [SerializeField] private GameObject Options = null;
+    [SerializeField] private GameObject Game = null;
+    [SerializeField] private GameObject Dead = null;
+
+    [SerializeField] private TextMeshProUGUI Info = null;
 
     private bool Sound = true;
     private bool Music = true;
@@ -21,11 +28,11 @@ public class CanvasManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) { Instance = this; } else { Debug.Log("Warning: multiple " + this.name + " in scene!"); } 
-    }
+    } 
 
     private void Update()
     {
-        if(Doly.GetComponentInChildren<CinemachineDollyCart>().m_Position > 62)
+        if(Doly != null && Doly.GetComponentInChildren<CinemachineDollyCart>().m_Position > 62)
         {
             PlayButton.SetActive(true);
             Ninja.GetComponent<NinjaController>().animator.SetBool(TransitionParameters.RunFinished.ToString(), true);
@@ -38,11 +45,14 @@ public class CanvasManager : MonoBehaviour
         ResumeGame();
     }
     public void StartGame()
-    {
-        Doly.SetActive(false); 
+    { 
+        Destroy(Doly);
+        Doly = null;
         Instantiate(GM);
         setAudio(Options.transform.GetChild(0).gameObject, true);
         setAudio(Options.transform.GetChild(1).gameObject, false);
+        gameManager = GM.GetComponent<GameManager>();
+
     }
 
     public void PauseGame()
@@ -58,7 +68,29 @@ public class CanvasManager : MonoBehaviour
     public void RestartGame()
     {
         ResumeGame();
-        GameManager.current.Restart();
+        gameManager.Restart();
+    }
+
+    public void RespawnNinja()
+    {
+        gameManager.Respawn();
+    }
+
+    public void Death()
+    { 
+        Game.SetActive(false);
+        Dead.SetActive(true);
+        gameManager.RemainingChance -=1;
+        
+        if (gameManager.RemainingChance == 0)
+        {
+            Info.text = "You passed"+ gameManager.ReachedCheckPoint +"checkpoint";
+            Dead.transform.GetChild(1).GetChild(3).gameObject.SetActive(false);
+        }
+        else
+        {
+            Info.text = "LEFT "+ gameManager.RemainingChance +" TRY";
+        }
     }
     
     public void SoundToggle()

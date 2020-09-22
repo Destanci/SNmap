@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 37985978734458613}
   - component: {fileID: 37985978734458614}
   - component: {fileID: 37985978734458612}
-  - component: {fileID: 37985978734458616}
   - component: {fileID: 964649410637867405}
   m_Layer: 0
   m_Name: Ninja_Poly_Menu
@@ -59,20 +58,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!136 &37985978734458616
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37985978734458617}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.291583
-  m_Height: 1.9918084
-  m_Direction: 1
-  m_Center: {x: -0.021250427, y: 0.9209044, z: -0.082163215}
 --- !u!114 &964649410637867405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3ac612bdc81b64695b8ba2285bd9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 8380774884168943193}
   Speed: 18
   TurnSmoothTime: 0.685
   vertical: 0
@@ -180,6 +165,12 @@ PrefabInstance:
 --- !u!4 &2499025613547510819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36db5128ff7c29945a6668057f559a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 2676523509129640904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8380774884168943193 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 36db5128ff7c29945a6668057f559a98,
     type: 3}
   m_PrefabInstance: {fileID: 2676523509129640904}
   m_PrefabAsset: {fileID: 0}

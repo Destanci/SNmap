@@ -16,7 +16,7 @@ namespace Boxophobic.StyledGUI
         public float down;
 
         MessageType mType;
-        bool enabled;
+        public bool enabled;
 
         public StyledMessageDrawer(string t, string m, float top, float down)
         {

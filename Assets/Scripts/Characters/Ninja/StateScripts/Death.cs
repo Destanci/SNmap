@@ -14,7 +14,7 @@ public class Death : StateMachineBehaviour
         ninja.rigid_body.angularVelocity = Vector3.zero;
         ninja.rigid_body.isKinematic = true;
          
-        //GameMenu.current.Dead();
+        CanvasManager.Instance.Death();
         GameManager.current.Timer.Stop();
         GameManager.current.IsPlayerStart = false;
     }
